@@ -4,7 +4,7 @@ a very, very, very, very simple rtsp player using FFMpeg and ImageView.
 
 ## Install
 
-```cordova plugin add https://github.com/felipew/rtsplayer.git```
+```cordova plugin add https://github.com/zazen00/rtsplayer.git```
 
 Execute the compile.sh inside the Plugins folder
 
