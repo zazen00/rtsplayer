@@ -34,10 +34,10 @@ public class rtsplayerActivity extends Activity implements SurfaceHolder.Callbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // if (this.getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE) {
-        //     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-        //     return;
-        // }
+        if (this.getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+            return;
+        }
 
         Bundle extras  = getIntent().getExtras();
         if (extras != null) {
@@ -54,7 +54,7 @@ public class rtsplayerActivity extends Activity implements SurfaceHolder.Callbac
 
         // create the linear layout to hold our video
         layout = new LinearLayout(this);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         layout.setLayoutParams(layoutParams);
 
         // add the surfaceView with the current video
