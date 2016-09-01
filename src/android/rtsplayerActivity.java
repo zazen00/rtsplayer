@@ -34,10 +34,10 @@ public class rtsplayerActivity extends Activity implements SurfaceHolder.Callbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (this.getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-            return;
-        }
+        // if (this.getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE) {
+        //     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        //     return;
+        // }
 
         Bundle extras  = getIntent().getExtras();
         if (extras != null) {
@@ -54,7 +54,7 @@ public class rtsplayerActivity extends Activity implements SurfaceHolder.Callbac
 
         // create the linear layout to hold our video
         layout = new LinearLayout(this);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layout.setLayoutParams(layoutParams);
 
         // add the surfaceView with the current video
@@ -69,7 +69,7 @@ public class rtsplayerActivity extends Activity implements SurfaceHolder.Callbac
         surfaceView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Para sair clique em voltar",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"clicked Surface",Toast.LENGTH_SHORT).show();
             }
         });
         surfaceHolder = surfaceView.getHolder();
@@ -95,7 +95,7 @@ public class rtsplayerActivity extends Activity implements SurfaceHolder.Callbac
 
             mediaPlayer.prepareAsync();
         } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "Falha ao abrir video",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "error creating surface",Toast.LENGTH_SHORT).show();
             e.printStackTrace();
             finishWithError();
         }
@@ -132,7 +132,7 @@ public class rtsplayerActivity extends Activity implements SurfaceHolder.Callbac
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
         Log.d("FLP", "onError fired");
-        Toast.makeText(getApplicationContext(), "Falha ao abrir video", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Error in video", Toast.LENGTH_SHORT).show();
         finishWithError();
         return false;
     }
